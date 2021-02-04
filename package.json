@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "aws-sdk": "^2.836.0",
+    "uuid": "^8.3.2"
+  }
+}
