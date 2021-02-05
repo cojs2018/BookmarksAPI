@@ -7,16 +7,26 @@ AWS.config.update({
 });
 
 exports.handler = async (event) => {
-    const queryParams = {
-        TableName = process.env.TABLE_NAME,
+    const {
+        params,
+    } = event;
+    
+    const {
+        bookmarkId,
+    } = params.path;
+
+    const deleteParams = {
+        TableName: process.env.TABLE_NAME,
+        Key: {
+            bookmarkId,
+        },
     };
 
-    return documentdb.query(queryParams).promise()
-        .then(resolvedBookmarkRequest => {
+    return documentdb.delete(deleteParams).promise()
+        .then(() => {
             return {
                 status: 200,
-                message: `${resolvedBookmarkRequest.Items.length} bookmark found`,
-                Items: resolvedBookmarkRequest.Items,
+                message: `Bookmark ${bookmarkId} deleted`,
             };
         })
         .catch(reasonForError => {

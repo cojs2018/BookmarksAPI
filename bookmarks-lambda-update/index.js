@@ -17,7 +17,7 @@ exports.handler = async (event) => {
     } = params.path;
 
     let updateParams = {
-        TableName = process.env.TABLE_NAME,
+        TableName: process.env.TABLE_NAME,
         Key: {
             bookmarkId,
         },

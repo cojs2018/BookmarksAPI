@@ -2,31 +2,35 @@ const AWS = require('aws-sdk');
 
 const documentdb = new AWS.DynamoDB.DocumentClient();
 
+const table = process.env.TABLE_NAME;
+const region = process.env.REGION;
+
 AWS.config.update({
-    region: process.env.REGION,
+    region,
 });
 
 exports.handler = async (event) => {
     const {
         params,
     } = event;
-    
+
     const {
         bookmarkId,
     } = params.path;
 
-    const deleteParams = {
-        TableName = process.env.TABLE_NAME,
+    const getParams = {
+        TableName: table,
         Key: {
             bookmarkId,
         },
     };
 
-    return documentdb.delete(deleteParams).promise()
-        .then(() => {
+    return documentdb.get(getParams).promise()
+        .then(resolvedBookmarkRequest => {
             return {
                 status: 200,
-                message: `Bookmark ${bookmarkId} deleted`,
+                message: `Bookmark ${bookmarkId} found`,
+                Item: resolvedBookmarkRequest.Item,
             };
         })
         .catch(reasonForError => {
