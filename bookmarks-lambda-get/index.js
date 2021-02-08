@@ -1,7 +1,5 @@
 const AWS = require('aws-sdk');
 
-const documentdb = new AWS.DynamoDB.DocumentClient();
-
 const table = process.env.TABLE_NAME;
 const region = process.env.REGION;
 
@@ -9,10 +7,14 @@ AWS.config.update({
     region,
 });
 
+const documentdb = new AWS.DynamoDB.DocumentClient();
+
 exports.handler = async (event) => {
     const {
         params,
     } = event;
+
+    console.log(event);
 
     const {
         bookmarkId,
@@ -39,4 +41,4 @@ exports.handler = async (event) => {
                 message: reasonForError,
             };
         });
-}
+};

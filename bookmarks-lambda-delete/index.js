@@ -1,10 +1,10 @@
 const AWS = require('aws-sdk');
 
-const documentdb = new AWS.DynamoDB.DocumentClient();
-
 AWS.config.update({
     region: process.env.REGION,
 });
+
+const documentdb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
     const {

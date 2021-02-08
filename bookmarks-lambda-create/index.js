@@ -1,15 +1,15 @@
 const AWS = require('aws-sdk');
 const { v4: uuidv4 } = require('uuid');
 
-const dynamodb = new AWS.DynamoDB.DocumentClient();
-const lambda = new AWS.Lambda();
-
 const table = process.env.TABLE_NAME;
 const region = process.env.REGION;
 
 AWS.config.update({
     region,
 });
+
+const dynamodb = new AWS.DynamoDB.DocumentClient();
+const lambda = new AWS.Lambda();
 
 const analyseBookmark = async (path) => {
     const payload = {
@@ -18,7 +18,7 @@ const analyseBookmark = async (path) => {
 
     const invokeParams = {
         FunctionName: process.env.ANALYSER,
-        Payload: payload,
+        Payload: JSON.stringify(payload),
     };
 
     return lambda.invoke(invokeParams).promise();
@@ -40,12 +40,14 @@ exports.handler = async (event) => {
 
     return analyseBookmark(path)
         .then(onfulfilled => {
+            const responsePayload = JSON.parse(onfulfilled.Payload);
+
             const {
                 title,
                 description,
                 tags,
                 images
-            } = onfulfilled.Payload.body;
+            } = responsePayload.body;
 
             const putParams = {
                 TableName: table,

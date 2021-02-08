@@ -1,10 +1,10 @@
 const AWS = require('aws-sdk');
 
-const documentdb = new AWS.DynamoDB.DocumentClient();
-
 AWS.config.update({
     region: process.env.REGION,
 });
+
+const documentdb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
     const {
@@ -28,14 +28,14 @@ exports.handler = async (event) => {
 
     const expressionsToConcat = Object.keys(body).map((key, i) => {
         let newExpression = `${key} = :${key}`;
-        if(i <  Object.keys(body).length) {
+        if(i <  Object.keys(body).length-1) {
             newExpression = newExpression + ',';
         }
         updateParams.ExpressionAttributeValues[`:${key}`] = body[key];
         return newExpression;
     });
 
-    updateParams.UpdateExpression.concat(expressionsToConcat);
+    updateParams.UpdateExpression = updateParams.UpdateExpression.concat(expressionsToConcat);
 
     return documentdb.update(updateParams).promise()
         .then(() => {
