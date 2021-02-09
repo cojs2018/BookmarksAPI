@@ -1,9 +1,13 @@
 {
+  "scripts": {
+    "test": "bash tests/tests.sh"
+  },
   "devDependencies": {
     "aws-sdk": "^2.836.0",
     "html-metadata-parser": "^1.0.3",
     "jest": "^26.6.3",
     "lambda-local": "^1.7.4",
+    "newman": "^5.2.2",
     "path": "^0.12.7",
     "uuid": "^8.3.2"
   }

@@ -18,13 +18,16 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
-							"pm.collectionVariables.set('bookmarkID', jsonData.body.bookmarkId)"
+							"pm.collectionVariables.set('bookmarkID', jsonData.body.bookmarkId);"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -47,6 +50,27 @@
 		},
 		{
 			"name": "List bookmarks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const items = jsonData.Items;\r",
+							"\r",
+							"pm.test(\"Items not empty\", () => {\r",
+							"    pm.expect(items.length).to.be.greaterThan(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -61,6 +85,19 @@
 		},
 		{
 			"name": "Get bookmark",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -93,6 +130,19 @@
 		},
 		{
 			"name": "Update bookmark",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PATCH",
 				"header": [],
@@ -119,6 +169,19 @@
 		},
 		{
 			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -171,7 +234,7 @@
 		},
 		{
 			"key": "bookmarkID",
-			"value": "49700972-e080-48f5-a37c-7fe390e020ba"
+			"value": "cb1938fd-4b90-4b26-b246-4730e4515753"
 		}
 	]
 }

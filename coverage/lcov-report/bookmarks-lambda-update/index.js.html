@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.12% </span>
+                <span class="strong">88.24% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/17</span>
+                <span class='fraction'>15/17</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.12% </span>
+                <span class="strong">88.24% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>16/17</span>
+                <span class='fraction'>15/17</span>
             </div>
         
             
@@ -113,16 +113,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -131,6 +121,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,7 +140,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -149,25 +149,25 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const AWS = require('aws-sdk');
-&nbsp;
-const documentdb = new AWS.DynamoDB.DocumentClient();
 &nbsp;
 AWS.config.update({
     region: process.env.REGION,
 });
+&nbsp;
+const documentdb = new AWS.DynamoDB.DocumentClient();
 &nbsp;
 exports.handler = async (event) =&gt; {
     const {
@@ -191,24 +191,24 @@ exports.handler = async (event) =&gt; {
 &nbsp;
     const expressionsToConcat = Object.keys(body).map((key, i) =&gt; {
         let newExpression = `${key} = :${key}`;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if(i &lt;  Object.keys(body).length) {
-            newExpression = newExpression + ',';
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(i &lt;  Object.keys(body).length-1) {
+<span class="cstat-no" title="statement not covered" >            newExpression = newExpression + ',';</span>
         }
         updateParams.ExpressionAttributeValues[`:${key}`] = body[key];
         return newExpression;
     });
 &nbsp;
-    updateParams.UpdateExpression.concat(expressionsToConcat);
+    updateParams.UpdateExpression = updateParams.UpdateExpression.concat(expressionsToConcat);
 &nbsp;
     return documentdb.update(updateParams).promise()
-        .then(() =&gt; {
-            return {
+        .then(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >            return {</span>
                 status: 200,
                 message: `Bookmark ${bookmarkId} updated`,
             };
         })
-        .catch(<span class="fstat-no" title="function not covered" >re</span>asonForError =&gt; {
-<span class="cstat-no" title="statement not covered" >            return {</span>
+        .catch(reasonForError =&gt; {
+            return {
                 status: 500,
                 message: reasonForError,
             };
@@ -220,7 +220,7 @@ exports.handler = async (event) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Feb 05 2021 14:09:59 GMT+0000 (Greenwich Mean Time)
+                at Tue Feb 09 2021 11:57:37 GMT+0000 (Greenwich Mean Time)
             </div>
         </div>
         <script src="../prettify.js"></script>
