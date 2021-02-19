@@ -7,31 +7,32 @@ AWS.config.update({
     region,
 });
 
-const documentdb = new AWS.DynamoDB.DocumentClient();
+const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
-
-    const { bookmarkId } = event.params.path;
+    const {
+        tagId
+    } = event;
 
     const getParams = {
         TableName: table,
         Key: {
-            bookmarkId,
+            tagId,
         },
     };
 
-    return documentdb.get(getParams).promise()
-        .then(resolvedBookmarkRequest => {
+    return dynamodb.get(getParams).promise()
+        .then(resolvedTagRequest => {
             return {
                 status: 200,
-                message: `Bookmark ${bookmarkId} found`,
-                Item: resolvedBookmarkRequest.Item,
-            };
+                message: `Tag ${tagId} found`,
+                Item: resolvedTagRequest.Item,
+            }
         })
         .catch(reasonForError => {
             return {
                 status: 500,
                 message: reasonForError,
-            };
+            }
         });
-};
+}

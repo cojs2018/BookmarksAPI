@@ -9,7 +9,6 @@ const documentdb = new AWS.DynamoDB.DocumentClient();
 exports.handler = async (event) => {
     const {
         params,
-        body,
     } = event;
 
     const {
@@ -25,6 +24,8 @@ exports.handler = async (event) => {
         ExpressionAttributeValues: {
         },
     };
+
+    const body = event["body-json"];
 
     const expressionsToConcat = Object.keys(body).map((key, i) => {
         let newExpression = `${key} = :${key}`;
@@ -50,4 +51,4 @@ exports.handler = async (event) => {
                 message: reasonForError,
             };
         });
-}
+};
