@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1612871857764" clover="3.2.0">
-  <project timestamp="1612871857764" name="All files">
-    <metrics statements="81" coveredstatements="70" conditionals="4" coveredconditionals="2" methods="21" coveredmethods="14" elements="106" coveredelements="86" complexity="0" loc="81" ncloc="81" packages="6" files="6" classes="6"/>
-    <package name="bookmarks-lambda-analyse">
+<coverage generated="1614003278013" clover="3.2.0">
+  <project timestamp="1614003278014" name="All files">
+    <metrics statements="156" coveredstatements="135" conditionals="6" coveredconditionals="2" methods="42" coveredmethods="28" elements="204" coveredelements="165" complexity="0" loc="156" ncloc="156" packages="12" files="12" classes="12"/>
+    <package name="bookmarks.bookmarks-lambda-analyse">
       <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
-      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks-lambda-analyse\index.js">
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks\bookmarks-lambda-analyse\index.js">
         <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -18,10 +18,10 @@
         <line num="33" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="bookmarks-lambda-create">
-      <metrics statements="23" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
-      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks-lambda-create\index.js">
-        <metrics statements="23" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
+    <package name="bookmarks.bookmarks-lambda-create">
+      <metrics statements="23" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks\bookmarks-lambda-create\index.js">
+        <metrics statements="23" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -40,16 +40,16 @@
         <line num="39" count="1" type="stmt"/>
         <line num="41" count="1" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="bookmarks-lambda-delete">
+    <package name="bookmarks.bookmarks-lambda-delete">
       <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks-lambda-delete\index.js">
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks\bookmarks-lambda-delete\index.js">
         <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -59,32 +59,30 @@
         <line num="16" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="bookmarks-lambda-get">
-      <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks-lambda-get\index.js">
-        <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+    <package name="bookmarks.bookmarks-lambda-get">
+      <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks\bookmarks-lambda-get\index.js">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="bookmarks-lambda-list">
+    <package name="bookmarks.bookmarks-lambda-list">
       <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks-lambda-list\index.js">
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks\bookmarks-lambda-list\index.js">
         <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -96,27 +94,140 @@
         <line num="24" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="bookmarks-lambda-update">
-      <metrics statements="17" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
-      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks-lambda-update\index.js">
-        <metrics statements="17" coveredstatements="15" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
+    <package name="bookmarks.bookmarks-lambda-update">
+      <metrics statements="18" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\bookmarks\bookmarks-lambda-update\index.js">
+        <metrics statements="18" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="tags.tags-lambda-create">
+      <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\tags\tags-lambda-create\index.js">
+        <metrics statements="13" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="tags.tags-lambda-decrement">
+      <metrics statements="20" coveredstatements="18" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="5"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\tags\tags-lambda-decrement\index.js">
+        <metrics statements="20" coveredstatements="18" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="5"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="52" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="tags.tags-lambda-delete">
+      <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\tags\tags-lambda-delete\index.js">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="tags.tags-lambda-get">
+      <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\tags\tags-lambda-get\index.js">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="tags.tags-lambda-increment">
+      <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\tags\tags-lambda-increment\index.js">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="tags.tags-lambda-list">
+      <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <file name="index.js" path="C:\Users\jstev\Documents\BookmarksAPI\tags\tags-lambda-list\index.js">
+        <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
       </file>
     </package>
   </project>
