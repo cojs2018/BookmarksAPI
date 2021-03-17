@@ -7,6 +7,8 @@ exports.handler = async (event) => {
 
     return htmlMeta.parser(path)
         .then(articleMetaData => {
+            console.log(articleMetaData);
+
             const {
                 meta,
                 og,

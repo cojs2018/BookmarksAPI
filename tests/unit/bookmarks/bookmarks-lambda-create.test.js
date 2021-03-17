@@ -18,7 +18,7 @@ describe('Create bookmark', () => {
             .mockReturnValueOnce(AWS.Request.prototype);
 
         lambda.invoke = jest.fn()
-            .mockReturnValueOnce(AWS.Request.prototype);
+            .mockReturnValue(AWS.Request.prototype);
 
         AWS.Request.prototype.promise = jest.fn()
             .mockReturnValueOnce(new Promise((resolve, reject) => {
@@ -32,6 +32,22 @@ describe('Create bookmark', () => {
                         },
                     }),
                 });
+            }))
+            .mockReturnValueOnce(new Promise((resolve, reject) => {
+                resolve({
+                    Payload: JSON.stringify({
+                        status: 200,
+                        message: 'Tag created successfully'
+                    })
+                })
+            }))
+            .mockReturnValueOnce(new Promise((resolve, reject) => {
+                resolve({
+                    Payload: JSON.stringify({
+                        status: 200,
+                        message: 'Tag created successfully'
+                    })
+                })
             }))
             .mockReturnValueOnce(new Promise((resolve, reject) => {
                 resolve({});

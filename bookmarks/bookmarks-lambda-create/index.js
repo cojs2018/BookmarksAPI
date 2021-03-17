@@ -24,6 +24,20 @@ const analyseBookmark = async (path) => {
     return lambda.invoke(invokeParams).promise();
 }
 
+const invokeUpdateTag = async (tag) => {
+    const payload = {
+        tag,
+        change: "increment",
+    };
+
+    const invokeParams = {
+        FunctionName: process.env.UPDATE_TAG_FN,
+        Payload: JSON.stringify(payload),
+    };
+
+    return lambda.invoke(invokeParams).promise();
+}
+
 exports.handler = async (event) => {
     const {
         body
@@ -49,34 +63,50 @@ exports.handler = async (event) => {
                 images
             } = responsePayload.body;
 
-            const putParams = {
-                TableName: table,
-                Item: {
-                    bookmarkId,
-                    articleName,
-                    path,
-                    url,
-                    createdAt,
-                    title,
-                    description,
-                    tags,
-                    images,
-                }
-            };
+            const createTagPromises = tags.map(async tag => {
+                return invokeUpdateTag(tag);
+            });
 
-            return dynamodb.put(putParams).promise()
-                .then(() => {
-                    return {
-                        status: 200,
-                        message: 'Bookmark successfully added to database',
-                        body: putParams.Item,
-                    }
+            return Promise.allSettled(createTagPromises)
+                .then(allCreatedTags => {
+                    const newTagSet = allCreatedTags
+                        .map(result => result.Item);
+
+                    const putParams = {
+                        TableName: table,
+                        Item: {
+                            bookmarkId,
+                            articleName,
+                            path,
+                            url,
+                            createdAt,
+                            title,
+                            description,
+                            tags: newTagSet,
+                            images,
+                        }
+                    };
+        
+                    return dynamodb.put(putParams).promise()
+                        .then(() => {
+                            return {
+                                status: 200,
+                                message: 'Bookmark successfully added to database',
+                                body: putParams.Item,
+                            }
+                        })
+                        .catch(reasonForError => {
+                            return {
+                                status: 500,
+                                message: reasonForError,
+                            }
+                        });
                 })
-                .catch(reasonForError => {
+                .catch(reasonforError => {
                     return {
                         status: 500,
                         message: reasonForError,
-                    }
+                    };
                 });
-        })
-}
+        });
+};
