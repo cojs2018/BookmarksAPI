@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-const sec = require('search-engine-client');
 
 const region = process.env.REGION;
 
@@ -23,12 +22,7 @@ const invokeList = async () => {
 };
 
 const search = async (searchQuery, count) => {
-    return sec.duckduckgo(`${searchQuery} news`, { count })
-        .then(fulfilledSearchResult => {
-            const links = fulfilledSearchResult.links;
-            return links;
-        })
-        .catch(reasonForError => reasonForError);
+    return 'Search pending';
 }
 
 exports.handler = async (event) => {

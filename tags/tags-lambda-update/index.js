@@ -22,7 +22,7 @@ const invokeCreateTag = async (inputTag) => {
         .then(invocationResult => {
             return JSON.parse(invocationResult.Payload);
         })
-        .catch(reasonForError => reasonForError);
+        .catch(reasonForError => JSON.parse(reasonForError.Payload));
 }
 
 const invokeIncrementTag = async (inputTag) => {
@@ -39,7 +39,7 @@ const invokeIncrementTag = async (inputTag) => {
         .then(invocationResult => {
             return JSON.parse(invocationResult.Payload);
         })
-        .catch(reasonForError => reasonForError);
+        .catch(reasonForError => JSON.parse(reasonForError.Payload));
 }
 
 const invokeDeleteTag = async (inputTag) => {
@@ -56,7 +56,7 @@ const invokeDeleteTag = async (inputTag) => {
         .then(invocationResult => {
             return JSON.parse(invocationResult.Payload);
         })
-        .catch(reasonForError => reasonForError);
+        .catch(reasonForError => JSON.parse(reasonForError.Payload));
 }
 
 const invokeDecrementTag = async (inputTag) => {
@@ -73,7 +73,7 @@ const invokeDecrementTag = async (inputTag) => {
         .then(invocationResult => {
             return JSON.parse(invocationResult.Payload);
         })
-        .catch(reasonForError => reasonForError);
+        .catch(reasonForError => JSON.parse(reasonForError.Payload));
 }
 
 const invokeGetTag = async (inputTag) => {
@@ -90,7 +90,7 @@ const invokeGetTag = async (inputTag) => {
         .then(invocationResult => {
             return JSON.parse(invocationResult.Payload);
         })
-        .catch(reasonForError => reasonForError);
+        .catch(reasonForError => JSON.parse(reasonForError.Payload));
 }
 
 exports.handler = async (event) => {
@@ -117,6 +117,9 @@ exports.handler = async (event) => {
     else if(change === 'decrement') {
         return invokeGetTag(tag)
             .then(getResult => {
+
+                if(getResult.status !== 200) throw new Error(resultPayload);
+
                 const foundTag = getResult.Item;
                 if(foundTag.featured > 1) {
                     return invokeDecrementTag(foundTag)

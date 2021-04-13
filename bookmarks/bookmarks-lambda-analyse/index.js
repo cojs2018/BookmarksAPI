@@ -38,3 +38,10 @@ exports.handler = async (event) => {
             }
         });
 };
+
+const event = {
+    path: 'https://en.wikipedia.org/wiki/Artificial_intelligence'
+}
+
+const fn = async () => console.log(this.handler(event));
+fn();

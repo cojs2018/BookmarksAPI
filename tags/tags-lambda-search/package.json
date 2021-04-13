@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "aws-sdk": "^2.849.0",
-    "search-engine-client": "^1.2.6"
+    "aws-sdk": "^2.849.0"
   }
 }

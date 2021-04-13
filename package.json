@@ -9,6 +9,7 @@
     "lambda-local": "^1.7.4",
     "newman": "^5.2.2",
     "path": "^0.12.7",
+    "search-engine-client": "^1.2.6",
     "uuid": "^8.3.2"
   }
 }
